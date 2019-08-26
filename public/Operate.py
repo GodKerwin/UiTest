@@ -1,15 +1,16 @@
-#coding=utf-8
-#author='Shichao-Dong'
+# coding=utf-8
+# author='Shichao-Dong'
 
-from GetYaml import getyaml
 from BaseOperate import BaseOperate
+from GetYaml import getyaml
+
 
 class Operate:
-    def __init__(self,path,driver):
+    def __init__(self, path, driver):
         self.path = path
         self.driver = driver
         self.yaml = getyaml(self.path)
-        self.baseoperate=BaseOperate(driver)
+        self.baseoperate = BaseOperate(driver)
 
     def check_operate_type(self):
         '''
@@ -47,7 +48,8 @@ class Operate:
                 elif self.yaml.get_findtype(i) == 'xpath':
                     self.baseoperate.get_xpath(self.yaml.get_elementinfo(i)).send_keys(self.yaml.get_send_content(i))
                 elif self.yaml.get_findtype(i) == 'ids':
-                    self.baseoperate.get_ids(self.yaml.get_elementinfo(i))[self.yaml.get_index(i)].send_keys(self.yaml.get_send_content(i))
+                    self.baseoperate.get_ids(self.yaml.get_elementinfo(i))[self.yaml.get_index(i)].send_keys(
+                        self.yaml.get_send_content(i))
 
             elif self.yaml.get_operate_type(i) == 'back':
                 for n in range(self.yaml.get_backtimes(i)):
@@ -70,7 +72,6 @@ class Operate:
                     else:
                         self.baseoperate.page('工作台')
 
-
     def back_home(self):
         '''
         返回至工作台
@@ -78,12 +79,11 @@ class Operate:
         '''
         self.baseoperate.page('工作台')
 
-
 # if __name__ == "__main__":
 #     import GetDriver
 #     driver = GetDriver.mydriver()
-#     path = "../testyaml/cm/cm-001addcm.yaml"
+#     path = "../testyaml/user/user-001addcm.yaml"
 #
-#     cm = Operate(path,driver)
-#     cm.check_operate_type()
-#     cm.back_home()
+#     user = Operate(path,driver)
+#     user.check_operate_type()
+#     user.back_home()

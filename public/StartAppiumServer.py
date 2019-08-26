@@ -1,11 +1,13 @@
-#coding=utf-8
-#author='Shichao-Dong'
+# coding=utf-8
 
-from logs import log
-import random,time
-import platform
+
 import os
+import platform
+import random
+import time
+
 from GetDevices import devices
+from logs import log
 
 log = log()
 dev = devices().get_deviceName()
@@ -47,7 +49,6 @@ class Sp:
         :return: 启动appium
         """
         return self.start_appium()
-
 
     def stop_appium(self):
         '''

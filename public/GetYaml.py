@@ -1,16 +1,15 @@
-#coding=utf-8
-#author='Shichao-Dong'
+# coding=utf-8
+
 
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 import yaml
-import codecs
-
 
 
 class getyaml:
-    def __init__(self,path):
+    def __init__(self, path):
         self.path = path
 
     def getYaml(self):
@@ -21,14 +20,14 @@ class getyaml:
         '''
         try:
             f = open(self.path)
-            data =yaml.load(f)
+            data = yaml.load(f)
             f.close()
             return data
         except Exception:
             print(u"未找到yaml文件")
 
     def alldata(self):
-        data =self.getYaml()
+        data = self.getYaml()
         return data
 
     def caselen(self):
@@ -36,29 +35,29 @@ class getyaml:
         length = len(data['testcase'])
         return length
 
-    def get_elementinfo(self,i):
+    def get_elementinfo(self, i):
         data = self.alldata()
         # print data['testcase'][i]['element_info']
         return data['testcase'][i]['element_info']
 
-    def get_findtype(self,i):
+    def get_findtype(self, i):
         data = self.alldata()
         # print data['testcase'][i]['find_type']
         return data['testcase'][i]['find_type']
 
-    def get_operate_type(self,i):
+    def get_operate_type(self, i):
         data = self.alldata()
         # print data['testcase'][i]['operate_type']
         return data['testcase'][i]['operate_type']
 
-    def get_index(self,i):
+    def get_index(self, i):
         data = self.alldata()
-        if self.get_findtype(i)=='ids':
-                    return data['testcase'][i]['index']
+        if self.get_findtype(i) == 'ids':
+            return data['testcase'][i]['index']
         else:
             pass
 
-    def get_send_content(self,i):
+    def get_send_content(self, i):
         data = self.alldata()
         # print data['testcase'][i]['send_content']
         if self.get_operate_type(i) == 'send_keys':
@@ -66,20 +65,19 @@ class getyaml:
         else:
             pass
 
-    def get_backtimes(self,i):
+    def get_backtimes(self, i):
         data = self.alldata()
-        if self.get_operate_type(i)=='back' or self.get_operate_type(i)=='swipe_up':
-                    return data['testcase'][i]['times']
+        if self.get_operate_type(i) == 'back' or self.get_operate_type(i) == 'swipe_up':
+            return data['testcase'][i]['times']
         else:
             pass
 
     def get_title(self):
         data = self.alldata()
         # print data['testinfo'][0]['title']
-        return  data['testinfo'][0]['title']
+        return data['testinfo'][0]['title']
 
-
-# path = "../testyaml/cm/cm-001addcm.yaml"
+# path = "../testyaml/user/user-001addcm.yaml"
 # # print getyaml(path).alldata()
 # # print getyaml(path).get_title()
 # for i in range(getyaml(path).caselen()):

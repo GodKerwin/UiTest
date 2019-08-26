@@ -1,0 +1,66 @@
+testinfo:
+    - id: user_login
+      title: 登录
+testcase:
+    #进入我的页面
+    -
+      element_info: 我的
+      find_type: text
+      operate_type: click
+    #关闭提示登录弹窗
+#    -
+#      element_info: com.jdd.motorfans:id/iv_close
+#      find_type: id
+#      operate_type: click
+    #进入登录页面
+    -
+      element_info: com.jdd.motorfans:id/vh_login_btn_login
+      find_type: id
+      operate_type: click
+    #输入手机号
+    -
+      element_info: com.jdd.motorfans:id/fast_login_et_phone
+      find_type: id
+      operate_type: send_keys
+      send_content: '18013155171'
+    #获取验证码
+    -
+      element_info: 获取验证码
+      find_type: text
+      operate_type: click
+    #输入验证码1
+    -
+      element_info: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.EditText[1]
+      find_type: xpath
+      operate_type: send_keys
+      send_content: 1
+    #输入验证码2
+    -
+      element_info: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.EditText[2]
+      find_type: xpath
+      operate_type: send_keys
+      send_content: 2
+    #输入验证码3
+    -
+      element_info: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.EditText[3]
+      find_type: xpath
+      operate_type: send_keys
+      send_content: 3
+    #输入验证码4
+    -
+      element_info: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.EditText[4]
+      find_type: xpath
+      operate_type: send_keys
+      send_content: 4
+    #输入验证码5
+    -
+      element_info: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.EditText[5]
+      find_type: xpath
+      operate_type: send_keys
+      send_content: 5
+    #输入验证码6
+    -
+      element_info: /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.EditText[6]
+      find_type: xpath
+      operate_type: send_keys
+      send_content: 6

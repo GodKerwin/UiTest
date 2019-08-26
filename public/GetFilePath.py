@@ -1,8 +1,9 @@
-#coding=utf-8
-#author='Shichao-Dong'
+# coding=utf-8
 
-import os
+
 import collections
+import os
+
 
 def all_file_path(root_directory, extension_name):
     '''
@@ -23,7 +24,7 @@ def all_file_path(root_directory, extension_name):
 
 if __name__ == '__main__':
     for k, v in all_file_path('../testyaml', '.yaml').items():
-        print k,v
+        print k, v
 
     for parent, dirnames, filenames in os.walk('../testyaml'):
         print parent

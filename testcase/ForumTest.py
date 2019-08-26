@@ -1,18 +1,16 @@
-#coding=utf-8
-#author='Shichao-Dong'
+# coding=utf-8
 
 
-from page.cm.CmAddcmPage import AddcmPage
-from page.cm.CmSortcmPage import SortcmPage
+import time
+import unittest
 
-
-
+from page.forum.ForumSearchPage import ForumSearchPage
 from public.GetDriver import mydriver
 from public.StartAppiumServer import Sp
-import unittest,time
 
 driver = mydriver()
 appiumserver = Sp(driver)
+
 
 class Cm(unittest.TestCase):
 
@@ -24,27 +22,20 @@ class Cm(unittest.TestCase):
     def tearDownClass(cls):
         pass
 
-    def test_001addcm(self):
+    def test_001searchpd(self):
         '''
-        新增客户
+        搜索商品
         :return:
         '''
-        add = AddcmPage(driver)
+        add = ForumSearchPage(driver)
         add.operateap()
         add.home()
-    def test_002sortcm(self):
-        '''
-        客户排序
-        :return:
-        '''
-        sort = SortcmPage(driver)
-        sort.sortlist()
-        sort.home()
 
     def test_999close(self):
         driver.quit()
         appiumserver.stop_appium()
         time.sleep(10)
+
 
 if __name__ == "__main__":
     unittest.main()

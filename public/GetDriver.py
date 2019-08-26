@@ -1,18 +1,18 @@
-#coding=utf-8
-#author='Shichao-Dong'
+# coding=utf-8
 
 import time
+
 from appium import webdriver
 from selenium.common.exceptions import WebDriverException
-import readConfig
+
 import GetDevices
+import readConfig
 from StartAppiumServer import Sp
 from logs import log
 
 log = log()
 conf = readConfig.Readconfig()
 cmd = GetDevices.devices()
-
 
 deviceName = cmd.get_deviceName()
 platformVersion = cmd.get_platformVersion().encode('ascii')
@@ -26,13 +26,13 @@ appium_port = s.main()
 
 def mydriver():
     desired_caps = {
-                'platformName':platformName,'deviceName':deviceName, 'platformVersion':platformVersion,
-                'appPackage':appPackage,'appActivity':appActivity,
-                'unicodeKeyboard':True,'resetKeyboard':True,'noReset':True,
-                'newCommandTimeout':180
-                }
+        'platformName': platformName, 'deviceName': deviceName, 'platformVersion': platformVersion,
+        'appPackage': appPackage, 'appActivity': appActivity,
+        'unicodeKeyboard': True, 'resetKeyboard': True, 'noReset': True,
+        'newCommandTimeout': 180
+    }
     try:
-        driver = webdriver.Remote('http://127.0.0.1:%s/wd/hub'%appium_port,desired_caps)
+        driver = webdriver.Remote('http://127.0.0.1:%s/wd/hub' % appium_port, desired_caps)
         time.sleep(4)
         log.info('获取driver成功')
         return driver
@@ -41,5 +41,4 @@ def mydriver():
 
 
 if __name__ == "__main__":
-
     mydriver()
